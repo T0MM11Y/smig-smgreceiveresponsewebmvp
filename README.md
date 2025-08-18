@@ -23,6 +23,16 @@ Versi MVP ini mencakup fitur-fitur core:
 - ✅ API documentation dengan Swagger
 - ✅ Unit testing dengan JUnit 5
 
+## Visuals
+
+### Swagger GET TEST
+
+![SWAGGER TEST GET](image/SwaggerGET.png)
+
+### Swagger POST TEST
+
+![SWAGGER TEST POST](image/SwaggerPOST.png)
+
 ## 🏗️ Arsitektur
 
 ```mermaid
