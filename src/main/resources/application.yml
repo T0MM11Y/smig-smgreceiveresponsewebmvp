@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: smig-smg-receive-response-web
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  # JPA Configuration
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        format_sql: true
+        jdbc.time_zone: UTC
+    show-sql: false
+
+  # Flyway Configuration
+  flyway:
+    enabled: false
+    # locations: classpath:db/migration
+    # baseline-on-migrate: true
+    # placeholders:
+    #   schema: ${DATABASE_SCHEMA:SMG_APP}
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /smg-api
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# Logging Configuration
+logging:
+  level:
+    com.smig.smg.receiver: INFO
+    org.hibernate.SQL: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# API Documentation
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  info:
+    title: SMIG-SMG ReceiveResponseWEB MVP API
+    description: REST API untuk menerima dan menyimpan response message
+    version: 1.0.0-MVP
+    contact:
+      name: SMIG Development Team
